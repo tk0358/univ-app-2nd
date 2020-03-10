@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UnivApp2nd</title>
+    <title>Tech University</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,9 +10,22 @@
   </head>
 
   <body>
-    <%= link_to 'home', root_path %>
-    <%= link_to 'about', about_path %>
-    <%= link_to 'new course', courses_new_path %>
-    <%= yield %>
+    
+    <nav>
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo right">Tech University</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><%= link_to 'Course', '#' %></li>
+            <li><%= link_to 'Enrollments', '#' %></li>
+            <li><%= link_to 'Account', '#' %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
