@@ -4,4 +4,8 @@ class Teacher < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX }
   has_many :courses
+
+  def formal_name
+    self.position + " " + self.name
+  end
 end

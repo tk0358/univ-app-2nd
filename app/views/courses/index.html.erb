@@ -20,7 +20,7 @@
               <%= link_to "Enroll", student_course_path(course_id: course.id), method: :post %>
             <% end %>
           <% end %>
-          <a href="#">Info</a>
+          <%= link_to "Info", course_path(course) %>
         </div>
       </div>
     </div>

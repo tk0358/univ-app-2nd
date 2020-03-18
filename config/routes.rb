@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'courses#index'
-  get 'courses/new', to: 'courses#new'
+  resources :courses, only: [:new, :show]
   get 'about', to: 'pages#about'
   resources :students, except: [:destroy]
   get 'login', to: 'sessions#new'
@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   post 'student_course', to: 'student_courses#create'
   delete 'student_course', to: 'student_courses#destroy'
+  resources :teachers, only: [:show]
 end

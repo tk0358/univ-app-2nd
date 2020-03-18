@@ -17,3 +17,12 @@ main {
 .course-list {
   list-style: square;
 }
+
+.teacher-name a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.teacher-name a:hover {
+  color: rgba(204, 204, 204, 0.918);
+}
