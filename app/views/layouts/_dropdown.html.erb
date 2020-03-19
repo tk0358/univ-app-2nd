@@ -1,0 +1,8 @@
+<li><%= session_link %></li>
+<% if logged_in? %>
+  <li><%= link_to "profile", student_path(current_user) %></li>
+<% end %>
+<% if !logged_in? && !teacher_logged_in? %>
+  <li class="divider"></li>
+  <li><%= link_to "signup", new_student_path %></li>
+<% end %>

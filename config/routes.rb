@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   post 'student_course', to: 'student_courses#create'
   delete 'student_course', to: 'student_courses#destroy'
-  resources :teachers, only: [:new, :create, :show]
+  resources :teachers, only: [:new, :create, :edit, :update, :show]
+  get 'teacher_login', to: 'teacher_sessions#new'
+  post 'teacher_login', to: 'teacher_sessions#create'
+  delete 'teacher_logout', to: 'teacher_sessions#destroy'
 end

@@ -1,5 +1,7 @@
 class TeachersController < ApplicationController
-  skip_before_action :require_user
+  skip_before_action :require_user_or_teacher
+  before_action :set_teacher, only: [:edit, :update, :show]
+  before_action :require_same_teacher, only: [:edit, :update]
 
   def new
     @teacher = Teacher.new
@@ -15,14 +17,37 @@ class TeachersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @teacher.update(teacher_param)
+      flash[:notice] = "You have successfully updated your profile"
+      redirect_to @teacher
+    else
+      flash.now[:notice] = "You cannnot update your account because of incorrect information"
+      render 'edit'
+    end
+  end
+
   def show
-    @teacher = Teacher.find(params[:id])
   end
 
   private
 
   def teacher_param
     params.require(:teacher).permit(:name, :email, :position, :password, :password_confirmation)
+  end
+
+  def set_teacher
+    @teacher = Teacher.find(params[:id])
+  end
+
+  def require_same_teacher
+    if @teacher != current_teacher
+      flash[:notice] = "You can update your profile only"
+      redirect_to current_teacher
+    end
   end
 
 end

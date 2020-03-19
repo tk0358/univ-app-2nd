@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_user, only: [:new, :create]
+  skip_before_action :require_user_or_teacher, only: [:new, :create]
 
   def new
 

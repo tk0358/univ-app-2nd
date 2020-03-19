@@ -1,23 +1,9 @@
 <header>
   <ul id="dropdown1" class="dropdown-content">
-    <li><%= session_link %></li>
-    <% if logged_in? %>
-      <li><%= link_to "profile", student_path(current_user) %></li>
-    <% end %>
-    <% unless logged_in? %>
-      <li class="divider"></li>
-      <li><%= link_to "signup", new_student_path %></li>
-    <% end %>
+    <%= render 'layouts/dropdown' %>
   </ul>
   <ul id="dropdown2" class="dropdown-content">
-    <li><%= session_link %></li>
-    <% if logged_in? %>
-      <li><%= link_to "profile", student_path(current_user) %></li>
-    <% end %>
-    <% unless logged_in? %>
-      <li class="divider"></li>
-      <li><%= link_to "signup", new_student_path %></li>
-    <% end %>
+    <%= render 'layouts/dropdown' %>
   </ul>
   <nav>
     <div class="container">
