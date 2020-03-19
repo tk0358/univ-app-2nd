@@ -20,10 +20,4 @@ class StudentCoursesController < ApplicationController
     redirect_to root_path
   end
 
-  private
-
-  def student_course_params
-    params.permit(:course)
-  end
-
 end
