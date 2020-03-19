@@ -26,3 +26,11 @@
     </div>
   <% end %>
 </div>
+
+<% if teacher_logged_in? %>
+<div class="row">
+  <div class="col s6 m6">
+    <%= link_to "Create new course", new_course_path, class: 'waves-effect waves-light btn-large' %>
+  </div>
+</div>
+<% end %>

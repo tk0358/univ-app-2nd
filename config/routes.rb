@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'courses#index'
-  resources :courses, only: [:new, :show]
+  resources :courses
   get 'about', to: 'pages#about'
   resources :students, except: [:destroy]
   get 'login', to: 'sessions#new'
