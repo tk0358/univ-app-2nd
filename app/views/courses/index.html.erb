@@ -21,6 +21,10 @@
             <% end %>
           <% end %>
           <%= link_to "Info", course_path(course) %>
+          <% if teacher_logged_in? && course.teacher == current_teacher %>
+            <%= link_to "Edit", edit_course_path(course) %>
+            <%= link_to "Delete", course_path(course), method: :delete, data: {confirm: 'Are you sure?' } %> 
+          <% end %>
         </div>
       </div>
     </div>
