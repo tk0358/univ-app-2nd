@@ -4,16 +4,20 @@
     <% if logged_in? %>
       <li><%= link_to "profile", student_path(current_user) %></li>
     <% end %>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <% unless logged_in? %>
+      <li class="divider"></li>
+      <li><%= link_to "signup", new_student_path %></li>
+    <% end %>
   </ul>
   <ul id="dropdown2" class="dropdown-content">
     <li><%= session_link %></li>
     <% if logged_in? %>
       <li><%= link_to "profile", student_path(current_user) %></li>
     <% end %>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <% unless logged_in? %>
+      <li class="divider"></li>
+      <li><%= link_to "signup", new_student_path %></li>
+    <% end %>
   </ul>
   <nav>
     <div class="container">
