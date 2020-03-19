@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   post 'student_course', to: 'student_courses#create'
   delete 'student_course', to: 'student_courses#destroy'
-  resources :teachers, only: [:show]
+  resources :teachers, only: [:new, :create, :show]
 end
