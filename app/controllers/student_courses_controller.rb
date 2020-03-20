@@ -20,4 +20,14 @@ class StudentCoursesController < ApplicationController
     redirect_to root_path
   end
 
+  def change_grade
+    student_course = StudentCourse.where(student_id: params[:student_id], course_id: params[:course_id]).first
+    student_course.grade = params[:grade]
+    if student_course.save
+      flash[:notice] = "You have successfully changed grade"
+    else
+      flash[:notice] = "Something went wrong"
+    end
+    redirect_to teacher_students_path(current_teacher)
+  end
 end

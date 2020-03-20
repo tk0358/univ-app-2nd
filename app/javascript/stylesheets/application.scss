@@ -30,3 +30,12 @@ main {
 .course-textarea {
   height: 10rem;
 }
+
+#grade-form {
+  display: inline-block;
+}
+
+#grade-form select {
+  display: inline-block;
+  width: 4rem;
+}

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   post 'student_course', to: 'student_courses#create'
   delete 'student_course', to: 'student_courses#destroy'
+  post 'change_grade', to: 'student_courses#change_grade'
   resources :teachers, only: [:new, :create, :edit, :update, :show]
   get '/teachers/:id/my_courses', to: 'teachers#my_courses', as: 'teacher_courses'
   get '/teachers/:id/my_students', to: 'teachers#my_students', as: 'teacher_students'

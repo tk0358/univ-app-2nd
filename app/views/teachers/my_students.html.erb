@@ -6,6 +6,7 @@
           <th>Name</th>
           <th>Email</th>
           <th>Grade</th>
+          <th>Change grade</th>
           <th>Actions</th>
       </tr>
     </thead>
@@ -14,8 +15,16 @@
         <tr>
           <td><%= student.name %></td>
           <td><%= student.email %></td>
-          <td><%= StudentCourse.where(student: student, course: course).first.grade %></td>
-          <td><%= link_to '<i class="material-icons left">email</i>Send mail'.html_safe, '#', class: "waves-effect waves-light btn-small" %></td>
+          <td><%= StudentCourse.where(student_id: student.id, course_id: course.id).first.grade %></td>
+          <td>
+            <%= form_tag(change_grade_path(student_id: student.id, course_id: course.id), id: 'grade-form') do %>
+              <%= select_tag(:grade, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], 3), class: 'browser-default') %>
+              <%= button_tag(class: "waves-effect waves-teal btn-flat" ) do %>
+                <%= '<i class="material-icons">system_update_alt</i>'.html_safe %>
+              <% end %>
+            <% end %>
+          </td>
+          <td><%= link_to '<i class="material-icons left">email</i>'.html_safe, '#', class: "waves-effect waves-light btn-flat" %></td>
         </tr>
       <% end %>
     </tbody>
