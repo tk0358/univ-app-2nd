@@ -1,0 +1,23 @@
+<% @courses.each do |course| %>
+  <h3><%= course.name %></h3>
+  <table>
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Result</th>
+          <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% course.students.each do |student| %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.email %></td>
+          <td>3</td>
+          <td><%= link_to '<i class="material-icons left">email</i>Send mail'.html_safe, '#', class: "waves-effect waves-light btn-small" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

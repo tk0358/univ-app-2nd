@@ -1,7 +1,9 @@
 class TeachersController < ApplicationController
   skip_before_action :require_user_or_teacher
-  before_action :set_teacher, only: [:edit, :update, :show]
-  before_action :require_same_teacher, only: [:edit, :update]
+  before_action :require_teacher
+  before_action :set_teacher, only: [:edit, :update, :show, :my_courses, :my_students]
+  before_action :require_same_teacher, only: [:edit, :update, :my_courses, :my_students]
+
 
   def new
     @teacher = Teacher.new
@@ -32,6 +34,15 @@ class TeachersController < ApplicationController
 
   def show
   end
+
+  def my_courses
+    @courses = @teacher.courses
+  end
+
+  def my_students
+    @courses = @teacher.courses
+  end
+
 
   private
 

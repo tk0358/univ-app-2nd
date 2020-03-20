@@ -3,3 +3,8 @@
   <li><%= link_to "Students", students_path %></li>
   <li><%= link_to "My Page", student_path(current_user) %></li>
 <% end %>
+<% if teacher_logged_in? %>
+  <li><%= link_to "My Courses", teacher_courses_path(current_teacher) %></li>
+  <li><%= link_to "My Students", teacher_students_path(current_teacher) %></li>
+  <li><%= link_to "My Page", teacher_path(current_teacher) %></li>
+<% end %>
