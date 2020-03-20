@@ -5,7 +5,7 @@
       <tr>
           <th>Name</th>
           <th>Email</th>
-          <th>Result</th>
+          <th>Grade</th>
           <th>Actions</th>
       </tr>
     </thead>
@@ -14,7 +14,7 @@
         <tr>
           <td><%= student.name %></td>
           <td><%= student.email %></td>
-          <td>3</td>
+          <td><%= StudentCourse.where(student: student, course: course).first.grade %></td>
           <td><%= link_to '<i class="material-icons left">email</i>Send mail'.html_safe, '#', class: "waves-effect waves-light btn-small" %></td>
         </tr>
       <% end %>
